@@ -12,10 +12,10 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Retrofit">
         <activity
-            android:name=".ubah"
+            android:name=".Activity.ubah"
             android:exported="false" />
         <activity
-            android:name=".MainActivity"
+            android:name=".Activity.MainActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

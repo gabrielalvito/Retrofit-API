@@ -12,6 +12,11 @@ import android.widget.ProgressBar;
 import android.widget.Toast;
 
 
+import com.example.retrofit.API.APIRequestData;
+import com.example.retrofit.API.RetroServer;
+import com.example.retrofit.Adapter.AdapterData;
+import com.example.retrofit.Model.DataModel;
+import com.example.retrofit.Model.ResponseModel;
 import com.example.retrofit.R;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
@@ -58,7 +63,7 @@ public class MainActivity extends AppCompatActivity {
         fabTambah.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                startActivity(new Intent(com.ahmfarisi.laundrypalembang.Activity.MainActivity.this, TambahActivity.class));
+                startActivity(new Intent(MainActivity.this, tambah.class));
             }
         });
     }
@@ -85,7 +90,7 @@ public class MainActivity extends AppCompatActivity {
 
                 listData = response.body().getData();
 
-                adData = new AdapterData(com.ahmfarisi.laundrypalembang.Activity.MainActivity.this, listData);
+                adData = new AdapterData(MainActivity.this, listData);
                 rvData.setAdapter(adData);
                 adData.notifyDataSetChanged();
 
@@ -94,7 +99,7 @@ public class MainActivity extends AppCompatActivity {
 
             @Override
             public void onFailure(Call<ResponseModel> call, Throwable t) {
-                Toast.makeText(com.ahmfarisi.laundrypalembang.Activity.MainActivity.this, "Gagal Menghubungi Server : "+t.getMessage(), Toast.LENGTH_SHORT).show();
+                Toast.makeText(MainActivity.this, "Gagal Menghubungi Server : "+t.getMessage(), Toast.LENGTH_SHORT).show();
 
                 pbData.setVisibility(View.INVISIBLE);
             }

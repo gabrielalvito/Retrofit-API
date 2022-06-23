@@ -30,8 +30,8 @@ import retrofit2.Response;
 public class AdapterData extends RecyclerView.Adapter<AdapterData.HolderData>{
     private Context ctx;
     private List<DataModel> listData;
-    private List<DataModel> listLaundry;
-    private int idLaundry;
+    private List<DataModel> listMahasiswa;
+    private int idMahasiswa;
 
     public AdapterData(Context ctx, List<DataModel> listData) {
         this.ctx = ctx;
@@ -90,7 +90,7 @@ public class AdapterData extends RecyclerView.Adapter<AdapterData.HolderData>{
                     dialogPesan.setIcon(R.mipmap.ic_launcher_round);
                     dialogPesan.setCancelable(true);
 
-                    idLaundry = Integer.parseInt(tvId.getText().toString());
+                    idMahasiswa = Integer.parseInt(tvId.getText().toString());
 
                     dialogPesan.setPositiveButton("Hapus", new DialogInterface.OnClickListener() {
                         @Override
@@ -124,7 +124,7 @@ public class AdapterData extends RecyclerView.Adapter<AdapterData.HolderData>{
 
         private void deleteData(){
             APIRequestData ardData = RetroServer.konekRetrofit().create(APIRequestData.class);
-            Call<ResponseModel> hapusData = ardData.ardDeleteData(idLaundry);
+            Call<ResponseModel> hapusData = ardData.ardDeleteData(idMahasiswa);
 
             hapusData.enqueue(new Callback<ResponseModel>() {
                 @Override
@@ -144,35 +144,33 @@ public class AdapterData extends RecyclerView.Adapter<AdapterData.HolderData>{
 
         private void getData(){
             APIRequestData ardData = RetroServer.konekRetrofit().create(APIRequestData.class);
-            Call<ResponseModel> ambilData = ardData.ardGetData(idLaundry);
+            Call<ResponseModel> ambilData = ardData.ardGetData(idMahasiswa);
 
             ambilData.enqueue(new Callback<ResponseModel>() {
                 @Override
                 public void onResponse(Call<ResponseModel> call, Response<ResponseModel> response) {
                     int kode = response.body().getKode();
                     String pesan = response.body().getPesan();
-                    listLaundry = response.body().getData();
+                    listMahasiswa = response.body().getData();
 
-                    int varIdLaundry = listLaundry.get(0).getId();
-                    String varNamaLaundry = listLaundry.get(0).getNama();
-                    String varNimLaundry = listLaundry.get(0).getNim();
-                    String varIpkLaundry = listLaundry.get(0).getIpk();
-                    String varAngkatanLaundry = listLaundry.get(0).getAngkatan();
-                    String varSemesterLaundry = listLaundry.get(0).getSemester();
-                    String varEmailLaundry = listLaundry.get(0).getEmail();
-                    String varTeleponLaundry = listLaundry.get(0).getTelepon();
-
-                    //Toast.makeText(ctx, "Kode : "+kode+" | Pesan : "+pesan+ " | Data : "+varIdLaundry+" | "+varNamaLaundry + " | "+varNimLaundry+" | "+varIpkLaundry, Toast.LENGTH_SHORT).show();
+                    int varIdMahasiswa= listMahasiswa.get(0).getId();
+                    String varNamaMahasiswa = listMahasiswa.get(0).getNama();
+                    String varNimMahasiswa = listMahasiswa.get(0).getNim();
+                    String varIpkMahasiswa= listMahasiswa.get(0).getIpk();
+                    String varAngkatanMahasiswa = listMahasiswa.get(0).getAngkatan();
+                    String varSemesterMahasiswa = listMahasiswa.get(0).getSemester();
+                    String varEmailMahasiswa = listMahasiswa.get(0).getEmail();
+                    String varTeleponMahasiswa = listMahasiswa.get(0).getTelepon();
 
                     Intent kirim = new Intent(ctx, ubah.class);
-                    kirim.putExtra("xId", varIdLaundry);
-                    kirim.putExtra("xNama", varNamaLaundry);
-                    kirim.putExtra("xNim", varNimLaundry);
-                    kirim.putExtra("xIpk", varIpkLaundry);
-                    kirim.putExtra("xAngkatan", varAngkatanLaundry);
-                    kirim.putExtra("xSemester", varSemesterLaundry);
-                    kirim.putExtra("xEmail", varEmailLaundry);
-                    kirim.putExtra("xTelepon", varTeleponLaundry);
+                    kirim.putExtra("xId", varIdMahasiswa);
+                    kirim.putExtra("xNama", varNamaMahasiswa);
+                    kirim.putExtra("xNim", varNimMahasiswa);
+                    kirim.putExtra("xIpk", varIpkMahasiswa);
+                    kirim.putExtra("xAngkatan", varAngkatanMahasiswa);
+                    kirim.putExtra("xSemester", varSemesterMahasiswa);
+                    kirim.putExtra("xEmail", varEmailMahasiswa);
+                    kirim.putExtra("xTelepon", varTeleponMahasiswa);
                     ctx.startActivity(kirim);
                 }
 

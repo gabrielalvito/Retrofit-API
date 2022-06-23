@@ -53,7 +53,8 @@ public class AdapterData extends RecyclerView.Adapter<AdapterData.HolderData>{
         holder.tvId.setText(String.valueOf(dm.getId()));
         holder.tvNama.setText(dm.getNama());
         holder.tvNim.setText(dm.getNim());
-        holder.tvKelas.setText(dm.getKelas());
+        holder.tvIpk.setText(dm.getIpk());
+        holder.tvAngkatan.setText(dm.getAngkatan());
     }
 
     @Override
@@ -62,7 +63,7 @@ public class AdapterData extends RecyclerView.Adapter<AdapterData.HolderData>{
     }
 
     public class HolderData extends RecyclerView.ViewHolder {
-        TextView tvId, tvNama, tvNim, tvKelas;
+        TextView tvId, tvNama, tvNim, tvIpk, tvAngkatan;
 
         public HolderData(@NonNull View itemView) {
             super(itemView);
@@ -70,7 +71,8 @@ public class AdapterData extends RecyclerView.Adapter<AdapterData.HolderData>{
             tvId = itemView.findViewById(R.id.tv_id);
             tvNama = itemView.findViewById(R.id.tv_nama);
             tvNim = itemView.findViewById(R.id.tv_nim);
-            tvKelas = itemView.findViewById(R.id.tv_kelas);
+            tvIpk = itemView.findViewById(R.id.tv_ipk);
+            tvAngkatan = itemView.findViewById(R.id.tv_angkatan);
 
             itemView.setOnLongClickListener(new View.OnLongClickListener() {
                 @Override
@@ -147,15 +149,17 @@ public class AdapterData extends RecyclerView.Adapter<AdapterData.HolderData>{
                     int varIdLaundry = listLaundry.get(0).getId();
                     String varNamaLaundry = listLaundry.get(0).getNama();
                     String varNimLaundry = listLaundry.get(0).getNim();
-                    String varKelasLaundry = listLaundry.get(0).getKelas();
+                    String varIpkLaundry = listLaundry.get(0).getIpk();
+                    String varAngkatanLaundry = listLaundry.get(0).getAngkatan();
 
-                    //Toast.makeText(ctx, "Kode : "+kode+" | Pesan : "+pesan+ " | Data : "+varIdLaundry+" | "+varNamaLaundry + " | "+varNimLaundry+" | "+varKelasLaundry, Toast.LENGTH_SHORT).show();
+                    //Toast.makeText(ctx, "Kode : "+kode+" | Pesan : "+pesan+ " | Data : "+varIdLaundry+" | "+varNamaLaundry + " | "+varNimLaundry+" | "+varIpkLaundry, Toast.LENGTH_SHORT).show();
 
                     Intent kirim = new Intent(ctx, ubah.class);
                     kirim.putExtra("xId", varIdLaundry);
                     kirim.putExtra("xNama", varNamaLaundry);
                     kirim.putExtra("xNim", varNimLaundry);
-                    kirim.putExtra("xKelas", varKelasLaundry);
+                    kirim.putExtra("xIpk", varIpkLaundry);
+                    kirim.putExtra("xAngkatan", varAngkatanLaundry);
                     ctx.startActivity(kirim);
                 }
 

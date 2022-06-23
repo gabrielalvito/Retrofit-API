@@ -2,7 +2,7 @@ package com.example.retrofit.Model;
 
 public class DataModel {
     private int id;
-    private String nama, nim, kelas;
+    private String nama, nim, ipk, angkatan;
 
     public int getId() {
         return id;
@@ -28,11 +28,21 @@ public class DataModel {
         this.nim = nim;
     }
 
-    public String getKelas() {
-        return kelas;
+    public String getIpk()
+    {
+        return ipk;
     }
 
-    public void setKelas(String kelas) {
-        this.kelas = kelas;
+    public void setIpk(String ipk) {
+        this.ipk = ipk;
+    }
+
+    public String getAngkatan()
+    {
+        return angkatan;
+    }
+
+    public void setAngkatan(String angkatan) {
+        this.angkatan = angkatan;
     }
 }

@@ -21,10 +21,10 @@ import retrofit2.Response;
 
 public class ubah extends AppCompatActivity {
     private int xId;
-    private String xNama, xNim, xKelas;
-    private EditText etNama, etNim, etKelas;
+    private String xNama, xNim, xIpk, xAngkatan;
+    private EditText etNama, etNim, etIpk, etAngkatan;
     private Button btnUbah;
-    private String yNama, yNim, yKelas;
+    private String yNama, yNim, yIpk, yAngkatan;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -35,23 +35,28 @@ public class ubah extends AppCompatActivity {
         xId = terima.getIntExtra("xId", -1);
         xNama = terima.getStringExtra("xNama");
         xNim = terima.getStringExtra("xNim");
-        xKelas = terima.getStringExtra("xKelas");
+        xIpk = terima.getStringExtra("xIpk");
+        xAngkatan = terima.getStringExtra("xAngkatan");
 
         etNama = findViewById(R.id.et_nama);
         etNim = findViewById(R.id.et_nim);
-        etKelas = findViewById(R.id.et_kelas);
+        etIpk = findViewById(R.id.et_ipk);
+        etAngkatan = findViewById(R.id.et_angkatan);
         btnUbah = findViewById(R.id.btn_ubah);
 
         etNama.setText(xNama);
         etNim.setText(xNim);
-        etKelas.setText(xKelas);
+        etIpk.setText(xIpk);
+        etAngkatan.setText(xAngkatan);
+
 
         btnUbah.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 yNama = etNama.getText().toString();
                 yNim = etNim.getText().toString();
-                yKelas = etKelas.getText().toString();
+                yIpk = etIpk.getText().toString();
+                yAngkatan = etAngkatan.getText().toString();
 
                 updateData();
             }
@@ -60,7 +65,7 @@ public class ubah extends AppCompatActivity {
 
     private void updateData(){
         APIRequestData ardData = RetroServer.konekRetrofit().create(APIRequestData.class);
-        Call<ResponseModel> ubahData = ardData.ardUpdateData(xId, yNama, yNim, yKelas);
+        Call<ResponseModel> ubahData = ardData.ardUpdateData(xId, yNama, yNim, yIpk, yAngkatan);
 
         ubahData.enqueue(new Callback<ResponseModel>() {
             @Override

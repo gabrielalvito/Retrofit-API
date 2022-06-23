@@ -17,7 +17,8 @@ public interface APIRequestData {
     Call<ResponseModel> ardCreateData(
             @Field("nama") String nama,
             @Field("nim") String nim,
-            @Field("kelas") String kelas
+            @Field("ipk") String ipk,
+            @Field("angkatan") String angkatan
     );
 
     @FormUrlEncoded
@@ -38,6 +39,7 @@ public interface APIRequestData {
             @Field("id") int id,
             @Field("nama") String nama,
             @Field("nim") String nim,
-            @Field("kelas") String kelas
+            @Field("ipk") String ipk,
+            @Field("angkatan") String angkatan
     );
 }

@@ -57,10 +57,26 @@
         >
 
         <EditText
-            android:id="@+id/et_kelas"
+            android:id="@+id/et_ipk"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Kelas"
+            android:hint="IPK"
+            android:inputType="phone"
+            android:textSize="20sp"
+            tools:ignore="SpeakableTextPresentCheck" />
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        >
+
+        <EditText
+            android:id="@+id/et_angkatan"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Angkatan"
             android:inputType="phone"
             android:textSize="20sp"
             tools:ignore="SpeakableTextPresentCheck" />

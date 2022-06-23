@@ -18,9 +18,9 @@ import retrofit2.Callback;
 import retrofit2.Response;
 
 public class tambah extends AppCompatActivity {
-    private EditText etNama, etNim, etKelas;
+    private EditText etNama, etNim, etIpk, etAngkatan;
     private Button btnSimpan;
-    private String nama, nim, kelas;
+    private String nama, nim, ipk, angkatan;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -29,7 +29,8 @@ public class tambah extends AppCompatActivity {
 
         etNama = findViewById(R.id.et_nama);
         etNim = findViewById(R.id.et_nim);
-        etKelas = findViewById(R.id.et_kelas);
+        etIpk = findViewById(R.id.et_ipk);
+        etAngkatan = findViewById(R.id.et_angkatan);
         btnSimpan = findViewById(R.id.btn_simpan);
 
         btnSimpan.setOnClickListener(new View.OnClickListener() {
@@ -37,7 +38,8 @@ public class tambah extends AppCompatActivity {
             public void onClick(View view) {
                 nama = etNama.getText().toString();
                 nim = etNim.getText().toString();
-                kelas = etKelas.getText().toString();
+                ipk = etIpk.getText().toString();
+                angkatan = etAngkatan.getText().toString();
 
                 if(nama.trim().equals("")){
                     etNama.setError("Nama Harus Diisi");
@@ -45,8 +47,11 @@ public class tambah extends AppCompatActivity {
                 else if(nim.trim().equals("")){
                     etNim.setError("Nim Harus Diisi");
                 }
-                else if(kelas.trim().equals("")){
-                    etKelas.setError("Kelas Harus Diisi");
+                else if(ipk.trim().equals("")){
+                    etIpk.setError("IPK Harus Diisi");
+                }
+                else if(angkatan.trim().equals("")){
+                    etAngkatan.setError("Angkatan Harus Diisi");
                 }
                 else{
                     createData();
@@ -57,7 +62,7 @@ public class tambah extends AppCompatActivity {
 
     private void createData(){
         APIRequestData ardData = RetroServer.konekRetrofit().create(APIRequestData.class);
-        Call<ResponseModel> simpanData = ardData.ardCreateData(nama, nim, kelas);
+        Call<ResponseModel> simpanData = ardData.ardCreateData(nama, nim, ipk, angkatan);
 
         simpanData.enqueue(new Callback<ResponseModel>() {
             @Override

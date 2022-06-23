@@ -37,10 +37,17 @@
             android:textSize="18sp" />
 
         <TextView
-            android:id="@+id/tv_kelas"
+            android:id="@+id/tv_ipk"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Kelas"
+            android:text="IPK"
+            android:textSize="18sp" />
+
+        <TextView
+            android:id="@+id/tv_angkatan"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Angkatan"
             android:textSize="18sp" />
 
     </LinearLayout>

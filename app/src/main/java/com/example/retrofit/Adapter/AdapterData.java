@@ -55,6 +55,10 @@ public class AdapterData extends RecyclerView.Adapter<AdapterData.HolderData>{
         holder.tvNim.setText(dm.getNim());
         holder.tvIpk.setText(dm.getIpk());
         holder.tvAngkatan.setText(dm.getAngkatan());
+        holder.tvSemester.setText(dm.getSemester());
+        holder.tvEmail.setText(dm.getEmail());
+        holder.tvTelepon.setText(dm.getTelepon());
+
     }
 
     @Override
@@ -63,7 +67,7 @@ public class AdapterData extends RecyclerView.Adapter<AdapterData.HolderData>{
     }
 
     public class HolderData extends RecyclerView.ViewHolder {
-        TextView tvId, tvNama, tvNim, tvIpk, tvAngkatan;
+        TextView tvId, tvNama, tvNim, tvIpk, tvAngkatan, tvSemester, tvEmail, tvTelepon;
 
         public HolderData(@NonNull View itemView) {
             super(itemView);
@@ -73,6 +77,9 @@ public class AdapterData extends RecyclerView.Adapter<AdapterData.HolderData>{
             tvNim = itemView.findViewById(R.id.tv_nim);
             tvIpk = itemView.findViewById(R.id.tv_ipk);
             tvAngkatan = itemView.findViewById(R.id.tv_angkatan);
+            tvSemester = itemView.findViewById(R.id.tv_semester);
+            tvEmail = itemView.findViewById(R.id.tv_email);
+            tvTelepon = itemView.findViewById(R.id.tv_telepon);
 
             itemView.setOnLongClickListener(new View.OnLongClickListener() {
                 @Override
@@ -151,6 +158,9 @@ public class AdapterData extends RecyclerView.Adapter<AdapterData.HolderData>{
                     String varNimLaundry = listLaundry.get(0).getNim();
                     String varIpkLaundry = listLaundry.get(0).getIpk();
                     String varAngkatanLaundry = listLaundry.get(0).getAngkatan();
+                    String varSemesterLaundry = listLaundry.get(0).getSemester();
+                    String varEmailLaundry = listLaundry.get(0).getEmail();
+                    String varTeleponLaundry = listLaundry.get(0).getTelepon();
 
                     //Toast.makeText(ctx, "Kode : "+kode+" | Pesan : "+pesan+ " | Data : "+varIdLaundry+" | "+varNamaLaundry + " | "+varNimLaundry+" | "+varIpkLaundry, Toast.LENGTH_SHORT).show();
 
@@ -160,6 +170,9 @@ public class AdapterData extends RecyclerView.Adapter<AdapterData.HolderData>{
                     kirim.putExtra("xNim", varNimLaundry);
                     kirim.putExtra("xIpk", varIpkLaundry);
                     kirim.putExtra("xAngkatan", varAngkatanLaundry);
+                    kirim.putExtra("xSemester", varSemesterLaundry);
+                    kirim.putExtra("xEmail", varEmailLaundry);
+                    kirim.putExtra("xTelepon", varTeleponLaundry);
                     ctx.startActivity(kirim);
                 }
 

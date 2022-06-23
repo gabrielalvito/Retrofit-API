@@ -18,7 +18,10 @@ public interface APIRequestData {
             @Field("nama") String nama,
             @Field("nim") String nim,
             @Field("ipk") String ipk,
-            @Field("angkatan") String angkatan
+            @Field("angkatan") String angkatan,
+            @Field("semester") String semester,
+            @Field("email") String email,
+            @Field("telepon") String telepon
     );
 
     @FormUrlEncoded
@@ -40,6 +43,10 @@ public interface APIRequestData {
             @Field("nama") String nama,
             @Field("nim") String nim,
             @Field("ipk") String ipk,
-            @Field("angkatan") String angkatan
+            @Field("angkatan") String angkatan,
+            @Field("semester") String semester,
+            @Field("email") String email,
+            @Field("telepon") String telepon
+
     );
 }

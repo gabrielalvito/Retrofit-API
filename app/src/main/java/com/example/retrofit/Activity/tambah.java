@@ -18,9 +18,9 @@ import retrofit2.Callback;
 import retrofit2.Response;
 
 public class tambah extends AppCompatActivity {
-    private EditText etNama, etNim, etIpk, etAngkatan;
+    private EditText etNama, etNim, etIpk, etAngkatan, etSemester, etEmail, etTelepon;
     private Button btnSimpan;
-    private String nama, nim, ipk, angkatan;
+    private String nama, nim, ipk, angkatan, semester, email, telepon;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -31,6 +31,9 @@ public class tambah extends AppCompatActivity {
         etNim = findViewById(R.id.et_nim);
         etIpk = findViewById(R.id.et_ipk);
         etAngkatan = findViewById(R.id.et_angkatan);
+        etSemester = findViewById(R.id.et_semester);
+        etEmail = findViewById(R.id.et_email);
+        etTelepon = findViewById(R.id.et_telepon);
         btnSimpan = findViewById(R.id.btn_simpan);
 
         btnSimpan.setOnClickListener(new View.OnClickListener() {
@@ -40,6 +43,9 @@ public class tambah extends AppCompatActivity {
                 nim = etNim.getText().toString();
                 ipk = etIpk.getText().toString();
                 angkatan = etAngkatan.getText().toString();
+                semester = etSemester.getText().toString();
+                email = etEmail.getText().toString();
+                telepon = etTelepon.getText().toString();
 
                 if(nama.trim().equals("")){
                     etNama.setError("Nama Harus Diisi");
@@ -53,6 +59,15 @@ public class tambah extends AppCompatActivity {
                 else if(angkatan.trim().equals("")){
                     etAngkatan.setError("Angkatan Harus Diisi");
                 }
+                else if(semester.trim().equals("")){
+                    etSemester.setError("Semester Harus Diisi");
+                }
+                else if(email.trim().equals("")){
+                    etEmail.setError("Email Harus Diisi");
+                }
+                else if(telepon.trim().equals("")){
+                    etTelepon.setError("Telepon Harus Diisi");
+                }
                 else{
                     createData();
                 }
@@ -62,7 +77,7 @@ public class tambah extends AppCompatActivity {
 
     private void createData(){
         APIRequestData ardData = RetroServer.konekRetrofit().create(APIRequestData.class);
-        Call<ResponseModel> simpanData = ardData.ardCreateData(nama, nim, ipk, angkatan);
+        Call<ResponseModel> simpanData = ardData.ardCreateData(nama, nim, ipk, angkatan, semester, email, telepon);
 
         simpanData.enqueue(new Callback<ResponseModel>() {
             @Override

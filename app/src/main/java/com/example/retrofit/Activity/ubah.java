@@ -21,10 +21,10 @@ import retrofit2.Response;
 
 public class ubah extends AppCompatActivity {
     private int xId;
-    private String xNama, xNim, xIpk, xAngkatan;
-    private EditText etNama, etNim, etIpk, etAngkatan;
+    private String xNama, xNim, xIpk, xAngkatan, xSemester, xEmail, xTelepon;
+    private EditText etNama, etNim, etIpk, etAngkatan, etSemester, etEmail, etTelepon;
     private Button btnUbah;
-    private String yNama, yNim, yIpk, yAngkatan;
+    private String yNama, yNim, yIpk, yAngkatan, ySemester, yEmail, yTelepon;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -37,17 +37,27 @@ public class ubah extends AppCompatActivity {
         xNim = terima.getStringExtra("xNim");
         xIpk = terima.getStringExtra("xIpk");
         xAngkatan = terima.getStringExtra("xAngkatan");
+        xSemester = terima.getStringExtra("xSemester");
+        xEmail = terima.getStringExtra("xEmail");
+        xTelepon = terima.getStringExtra("xTelepon");
 
         etNama = findViewById(R.id.et_nama);
         etNim = findViewById(R.id.et_nim);
         etIpk = findViewById(R.id.et_ipk);
         etAngkatan = findViewById(R.id.et_angkatan);
+        etSemester = findViewById(R.id.et_semester);
+        etEmail = findViewById(R.id.et_email);
+        etTelepon = findViewById(R.id.et_telepon);
         btnUbah = findViewById(R.id.btn_ubah);
 
         etNama.setText(xNama);
         etNim.setText(xNim);
         etIpk.setText(xIpk);
         etAngkatan.setText(xAngkatan);
+        etSemester.setText(xSemester);
+        etEmail.setText(xEmail);
+        etTelepon.setText(xTelepon);
+
 
 
         btnUbah.setOnClickListener(new View.OnClickListener() {
@@ -57,6 +67,10 @@ public class ubah extends AppCompatActivity {
                 yNim = etNim.getText().toString();
                 yIpk = etIpk.getText().toString();
                 yAngkatan = etAngkatan.getText().toString();
+                ySemester = etSemester.getText().toString();
+                yEmail = etEmail.getText().toString();
+                yTelepon = etTelepon.getText().toString();
+
 
                 updateData();
             }
@@ -65,7 +79,7 @@ public class ubah extends AppCompatActivity {
 
     private void updateData(){
         APIRequestData ardData = RetroServer.konekRetrofit().create(APIRequestData.class);
-        Call<ResponseModel> ubahData = ardData.ardUpdateData(xId, yNama, yNim, yIpk, yAngkatan);
+        Call<ResponseModel> ubahData = ardData.ardUpdateData(xId, yNama, yNim, yIpk, yAngkatan, ySemester, yEmail, yTelepon);
 
         ubahData.enqueue(new Callback<ResponseModel>() {
             @Override

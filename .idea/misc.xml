@@ -3,9 +3,12 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/POLINES/Semester IV/4. P. Interoperabilitas/retrofit/app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.290625" />
         <entry key="..\:/POLINES/Semester IV/4. P. Interoperabilitas/retrofit/app/src/main/res/drawable/ic_add.xml" value="0.246875" />
+        <entry key="..\:/POLINES/Semester IV/4. P. Interoperabilitas/retrofit/app/src/main/res/drawable/ic_launcher_background.xml" value="0.290625" />
         <entry key="..\:/POLINES/Semester IV/4. P. Interoperabilitas/retrofit/app/src/main/res/layout/activity_main.xml" value="0.2" />
         <entry key="..\:/POLINES/Semester IV/4. P. Interoperabilitas/retrofit/app/src/main/res/layout/activity_tambah.xml" value="0.1716485507246377" />
+        <entry key="..\:/POLINES/Semester IV/4. P. Interoperabilitas/retrofit/app/src/main/res/layout/activity_ubah.xml" value="0.23233695652173914" />
         <entry key="..\:/POLINES/Semester IV/4. P. Interoperabilitas/retrofit/app/src/main/res/layout/card_item.xml" value="0.17798913043478262" />
       </map>
     </option>
